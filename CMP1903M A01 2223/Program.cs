@@ -13,4 +13,17 @@ namespace CMP1903M_A01_2223
 
         }
     }
+
+    class Testing
+    {
+        static void Main(string[] args)
+        {
+            Pack new_pack = new Pack();
+            for (int i = 1; i < 4; i++)
+            {
+                // This loops over 3 numbers, all of which are valid options for shuffleCardPack
+                Pack.shuffleCardPack(i);
+            }
+        }
+    }
 }
