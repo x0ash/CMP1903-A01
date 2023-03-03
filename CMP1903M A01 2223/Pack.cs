@@ -8,7 +8,7 @@ namespace CMP1903M_A01_2223
 {
     class Pack
     {
-        static List<Card> pack;
+        static List<Card> pack = new List<Card>();
 
         public Pack()
         {
@@ -17,7 +17,7 @@ namespace CMP1903M_A01_2223
             {
                 for (int value = 1; value <= 13; value++)
                 {
-                    pack.Append(new Card(value, suit));
+                    pack.Add(new Card(value, suit));
                 }
             }
         }
@@ -49,6 +49,22 @@ namespace CMP1903M_A01_2223
             else if (typeOfShuffle == 2)
             {
                 // Riffle Shuffle
+
+                // First the deck must be split into two
+                Card[] halfA = pack.GetRange(0, 26).ToArray();
+                Card[] halfB = pack.GetRange(26, 26).ToArray();
+                List<Card> shuffled_deck = new List<Card>();
+
+                // Simulate the 'riffle'
+
+                for (int i = 0; i < 26; i++)                // As both sides will have 26 cards each, a half-deck for loop can be used.
+                {
+                    shuffled_deck.Append(halfA[i]);
+                    shuffled_deck.Append(halfB[i]);
+                }
+
+                pack = shuffled_deck;                   // Set the deck to be the new shuffled pack.
+
                 return true;
             }
 
@@ -67,12 +83,26 @@ namespace CMP1903M_A01_2223
         }
         public static Card deal()
         {
+            return pack[0];
             //Deals one card
 
         }
         public static List<Card> dealCard(int amount)
         {
+            return pack.GetRange(0, amount);
             //Deals the number of cards specified by 'amount'
+        }
+
+        public static string ToString()
+        {
+            string[] card_strs = new string[52];
+
+            for (int i = 0; i < 52; i++)
+            {
+                card_strs[i] = "Card(" + pack[i].Suit.ToString() + ", " + pack[i].Value.ToString() + ")";
+            }
+
+            return string.Join(",", card_strs);
         }
     }
 }

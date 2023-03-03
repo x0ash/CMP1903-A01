@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
+    /*
     class Program
     {
         static void Main(string[] args)
@@ -13,6 +14,7 @@ namespace CMP1903M_A01_2223
 
         }
     }
+    */
 
     class Testing
     {
@@ -23,6 +25,7 @@ namespace CMP1903M_A01_2223
             {
                 // This loops over 3 numbers, all of which are valid options for shuffleCardPack
                 Pack.shuffleCardPack(i);
+                Console.WriteLine(Pack.ToString());
             }
         }
     }
