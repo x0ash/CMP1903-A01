@@ -31,6 +31,17 @@ namespace CMP1903M_A01_2223
 
         public static bool shuffleCardPack(int typeOfShuffle)
         {
+            /// <summary>
+            /// Shuffles the deck in two ways.
+            /// Usage: shuffleCardPack(1/2/3)
+            ///
+            /// 1: Fisher-Yates Shuffle
+            /// 2: Riffle Shuffle
+            /// 3: No Shuffle
+            /// 
+            /// Any parameter outside 1-3 will return false for error handling
+            /// </summary>
+            
             //Shuffles the pack based on the type of shuffle
             if (typeOfShuffle == 1)
             {
@@ -59,8 +70,8 @@ namespace CMP1903M_A01_2223
 
                 for (int i = 0; i < 26; i++)                // As both sides will have 26 cards each, a half-deck for loop can be used.
                 {
-                    shuffled_deck.Append(halfA[i]);
-                    shuffled_deck.Append(halfB[i]);
+                    shuffled_deck.Add(halfA[i]);
+                    shuffled_deck.Add(halfB[i]);
                 }
 
                 pack = shuffled_deck;                   // Set the deck to be the new shuffled pack.
