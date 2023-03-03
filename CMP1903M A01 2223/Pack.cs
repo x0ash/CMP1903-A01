@@ -15,7 +15,7 @@ namespace CMP1903M_A01_2223
             //Initialise the card pack here - 52 cards
             for (int suit = 1; suit <= 4; suit++)
             {
-                for (int value = 1; value <= 13; value++)
+                for (int value = 1; value <= 14; value++)
                 {
                     pack.Add(new Card(value, suit));
                 }
