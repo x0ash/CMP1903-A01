@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{1A2F9CA1-E6D8-4662-B3E5-32190DD347C7}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CMP1903M_220A01_2202223 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CMP1903M A01 2223/Pack.cs">
+    <Files>
+      <File FileName="CMP1903M A01 2223/Program.cs" />
+      <File FileName="CMP1903M A01 2223/Pack.cs" Line="32" Column="38" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CMP1903M A01 2223" expanded="True">
+            <Node name="CMP1903M A01 2223" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
