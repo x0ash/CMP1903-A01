@@ -15,18 +15,18 @@ namespace CMP1903M_A01_2223
             //Initialise the card pack here - 52 cards
             for (int suit = 1; suit <= 4; suit++)
             {
-                for (int value = 1; value <= 14; value++)
+                for (int value = 1; value <= 13; value++)
                 {
                     pack.Add(new Card(value, suit));
                 }
             }
         }
 
-        static void swap_cards(int i, int j)
+        static void swapCards(int i, int j)
         {
-            Card swap_bak = pack[i];
+            Card swapBak = pack[i];
             pack[i] = pack[j];
-            pack[j] = swap_bak;
+            pack[j] = swapBak;
         }
 
         public static bool shuffleCardPack(int typeOfShuffle)
@@ -45,7 +45,7 @@ namespace CMP1903M_A01_2223
             //Shuffles the pack based on the type of shuffle
 
             // Keeping track of the deck size allows the deck to be shuffled after cards have been dealt
-            int deck_size = pack.Count;
+            int deckSize = pack.Count;
 
             if (typeOfShuffle == 1)
             {
@@ -53,10 +53,10 @@ namespace CMP1903M_A01_2223
                 // This algorithm is derived from Durstenfeld's [1964]
                 // Ref: https://dl.acm.org/doi/pdf/10.1145/364520.364540#.pdf via Wikipedia
 
-                for (int i = deck_size - 1; i >= 1; i--)
+                for (int i = deckSize - 1; i >= 1; i--)                         // This specific implementation works backwards through the deck
                 {
-                    int j = (int)Math.Round(new Random().NextDouble() * i);
-                    swap_cards(i, j);
+                    int j = (int)Math.Round(new Random().NextDouble() * i);     // Random.NextDouble() creates a 0.0-1.0 float value, so multiplying by i gives a random value of an unshuffled card (integer [0-i])
+                    swapCards(i, j);                                            // Finally, swap the cards at the random position and the current value of i.
                 }
 
                 return true;
@@ -66,28 +66,28 @@ namespace CMP1903M_A01_2223
             {
                 // Riffle Shuffle
 
-                int half_count = deck_size / 2;
+                int halfCount = deckSize / 2;
 
                 // First the deck must be split into two
-                Card[] halfA = pack.GetRange(0, half_count).ToArray();
-                Card[] halfB = pack.GetRange(half_count, deck_size - half_count).ToArray();
-                List<Card> shuffled_deck = new List<Card>();
+                Card[] halfA = pack.GetRange(0, halfCount).ToArray();                       // Obtains the lower half of the deck
+                Card[] halfB = pack.GetRange(halfCount, deckSize - halfCount).ToArray();    // Obtains the higher half of the deck
+                List<Card> shuffledDeck = new List<Card>();
 
                 // Simulate the 'riffle'
 
-                for (int i = 0; i < half_count; i++)                // As both sides will have 26 cards each, a half-deck for loop can be used.
+                for (int i = 0; i < halfCount; i++)                // As both sides will have 26 cards each, a half-deck for loop can be used.
                 {
-                    shuffled_deck.Add(halfA[i]);
-                    shuffled_deck.Add(halfB[i]);
+                    shuffledDeck.Add(halfA[i]);             // This loop simulates the A-B-A-B stacking nature of a riffle shuffle.
+                    shuffledDeck.Add(halfB[i]);
                 }
 
                 // If the halfs aren't even then there will always be one extra card in halfB that still needs to be added.
-                if (halfB.Count() > half_count)
+                if (halfB.Count() > halfCount)
                 {
-                    shuffled_deck.Add(halfB[halfB.Count() - 1]);
+                    shuffledDeck.Add(halfB[halfB.Count() - 1]);         // If the deck had an odd number of cards in it when shuffled (for example if one was already dealt) then this accounts for the one left over card.
                 }
 
-                pack = shuffled_deck;                   // Set the deck to be the new shuffled pack.
+                pack = shuffledDeck;                   // Set the deck to be the new shuffled pack.
 
                 return true;
             }
@@ -107,30 +107,30 @@ namespace CMP1903M_A01_2223
         }
         public static Card deal()
         {
-            Card dealt_card = pack[0];
+            Card dealtCard = pack[0];
             pack.RemoveAt(0);
-            return dealt_card;
+            return dealtCard;
             //Deals one card
 
         }
         public static List<Card> dealCard(int amount)
         {
-            List<Card> card_range = pack.GetRange(0, amount);
+            List<Card> cardRange = pack.GetRange(0, amount);
             pack.RemoveRange(0, amount);
-            return card_range;
+            return cardRange;
             //Deals the number of cards specified by 'amount'
         }
 
         public static string ToString()                     // This returns the values of the deck array rather than the overarching deck object
         {
-            string[] card_strs = new string[pack.Count];
+            string[] cardStrs = new string[pack.Count];
 
             for (int i = 0; i < pack.Count; i++)
             {
-                card_strs[i] = "Card(" + pack[i].Suit.ToString() + ", " + pack[i].Value.ToString() + ")";
+                cardStrs[i] = "Card(" + pack[i].Suit.ToString() + ", " + pack[i].Value.ToString() + ")";
             }
 
-            return string.Join(",", card_strs);
+            return string.Join(",", cardStrs);
         }
     }
 }
