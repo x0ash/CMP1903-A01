@@ -19,6 +19,9 @@ namespace CMP1903M_A01_2223
         {
             // Cards must always be between 1-13 in value and 1-4 in suit, otherwise throw range exception
             // This is so that they follow the same rules as a standard deck of cards.
+
+            // These exceptions are mainly for the benefit of a programmer - they shouldn't ever appear during regular usage of the
+            // program. As a result, I do not perform exception handling surrounding these.
             if (value <= 0 || value > 13)
             {
                 // If this error was thrown, then it means that more than 13 cards (or less than 1) were created for a suit
@@ -36,6 +39,11 @@ namespace CMP1903M_A01_2223
                 Value = value;
                 Suit = suit;
             }
+        }
+
+        public string ToString()
+        {
+            return ("Card(" + Suit.ToString() + "," + Value.ToString() + ")");
         }
     }
 }

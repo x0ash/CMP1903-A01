@@ -25,6 +25,14 @@ namespace CMP1903M_A01_2223
                 Pack.shuffleCardPack(i);
                 Console.WriteLine(Pack.ToString());
             }
+
+            Console.WriteLine(format: "Dealing {0}", Pack.deal());
+
+            List<Card> dealtCards = Pack.dealCard(10);
+            foreach (Card card in dealtCards)
+            {
+                Console.WriteLine(format:"Dealt {0}", card.ToString());
+            }
         }
     }
 }
