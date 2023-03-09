@@ -22,7 +22,7 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        static void swapCards(int i, int j)
+        static void swapCards(int i, int j)     // additional
         {
             Card swapBak = pack[i];
             pack[i] = pack[j];
@@ -121,6 +121,7 @@ namespace CMP1903M_A01_2223
             //Deals the number of cards specified by 'amount'
         }
 
+        // additional
         public static string ToString()                     // This returns the values of the deck array rather than the overarching deck object
         {
             string[] cardStrs = new string[pack.Count];

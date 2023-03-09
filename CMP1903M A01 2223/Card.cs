@@ -12,6 +12,9 @@ namespace CMP1903M_A01_2223
         //Value: numbers 1 - 13
         //Suit: numbers 1 - 4
         //The 'set' methods for these properties could have some validation
+
+        // Using integers here is most effective as a unique identifier can be given to each suit, and each card's value rather than name can be used instead
+        // (i.e. 1 instead of 'ace'). This conserves on memory as strings don't have to be stored and allows for easier validation on the cards.
         public int Value { get; set; }
         public int Suit { get; set; }
 
@@ -41,6 +44,7 @@ namespace CMP1903M_A01_2223
             }
         }
 
+        // additional
         public string ToString()
         {
             return ("Card(" + Suit.ToString() + "," + Value.ToString() + ")");
