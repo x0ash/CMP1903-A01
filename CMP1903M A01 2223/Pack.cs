@@ -127,7 +127,7 @@ namespace CMP1903M_A01_2223
 
             for (int i = 0; i < pack.Count; i++)
             {
-                cardStrs[i] = "Card(" + pack[i].Suit.ToString() + ", " + pack[i].Value.ToString() + ")";
+                cardStrs[i] = pack[i].ToString();
             }
 
             return string.Join(",", cardStrs);
