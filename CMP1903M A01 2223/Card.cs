@@ -20,12 +20,12 @@ namespace CMP1903M_A01_2223
             // Cards must always be between 1-13 in value and 1-4 in suit, otherwise throw range exception
             if (value <= 0 || value > 13)
             {
-                throw new ArgumentOutOfRangeException("value");
+                throw new ArgumentOutOfRangeException("Integer 'value' must only be between 1 and 13 (inclusive)");
             }
 
             else if (suit <= 0 || suit > 4)
             {
-                throw new ArgumentOutOfRangeException("suit");
+                throw new ArgumentOutOfRangeException("Integer 'suit' must only be between 1 and 4 (inclusive)");
             }
 
             else
